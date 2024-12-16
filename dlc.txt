@@ -1,0 +1,100 @@
+-- Создание таблицы для Program
+CREATE TABLE Program (
+    Id INT PRIMARY KEY,
+    EmployeeId INT,
+    ClientId INT,
+    RequestRemontId INT,
+    RegAppId INT,
+    AppProcessId INT,
+    AppExecId INT,
+    RepInfoId INT,
+    MonitoringAnalId INT
+);
+
+-- Создание таблицы для Employee
+CREATE TABLE Employee (
+    Id INT PRIMARY KEY,
+    Name NVARCHAR(255),
+    SecondName NVARCHAR(255),
+    Phone NVARCHAR(255),
+    Email NVARCHAR(255),
+    Address NVARCHAR(255),
+    Salary NVARCHAR(255),
+    RequestId INT
+);
+
+-- Создание таблицы для Client
+CREATE TABLE Client (
+    Id INT PRIMARY KEY,
+    Name NVARCHAR(255),
+    SecondName NVARCHAR(255),
+    Phone NVARCHAR(255),
+    Email NVARCHAR(255),
+    RequestId INT
+);
+
+-- Создание таблицы для RequestRemont
+CREATE TABLE RequestRemont (
+    Id INT PRIMARY KEY,
+    Oborud NVARCHAR(255),
+    Nomer NVARCHAR(255),
+    Description NVARCHAR(255),
+    ClientId INT,
+    Priority NVARCHAR(255),
+    [Create] DATETIME,  -- Использование квадратных скобок для зарезервированного слова
+    [Update] DATETIME,  -- Использование квадратных скобок для зарезервированного слова
+    Finish DATETIME,
+    Status NVARCHAR(255)
+);
+
+-- Создание таблицы для RegApp
+CREATE TABLE RegApp (
+    Id INT PRIMARY KEY,
+    Priority NVARCHAR(255),
+    [Create] DATETIME,  -- Использование квадратных скобок для зарезервированного слова
+    Status NVARCHAR(255),
+    RequestId INT,
+    ClientId INT
+);
+
+-- Создание таблицы для AppProcess
+CREATE TABLE AppProcess (
+    Id INT PRIMARY KEY,
+    Priority NVARCHAR(255),
+    [Update] DATETIME,  -- Использование квадратных скобок для зарезервированного слова
+    Status NVARCHAR(255),
+    EmployeeId INT,
+    RequestId INT
+);
+
+-- Создание таблицы для AppExec
+CREATE TABLE AppExec (
+    Id INT PRIMARY KEY,
+    Priority NVARCHAR(255),
+    [Update] DATETIME,  -- Использование квадратных скобок для зарезервированного слова
+    Status NVARCHAR(255),
+    EmployeeId INT,
+    RequestId INT
+);
+
+-- Создание таблицы для RepInfo
+CREATE TABLE RepInfo (
+    Id INT PRIMARY KEY,
+    Finish DATETIME,
+    Time NVARCHAR(255),
+    Status NVARCHAR(255),
+    Money NVARCHAR(255),
+    Materials NVARCHAR(255),
+    EmployeeId INT
+);
+
+-- Создание таблицы для MonitoringAnal
+CREATE TABLE MonitoringAnal (
+    Id INT PRIMARY KEY,
+    Money NVARCHAR(255),
+    Time NVARCHAR(255),
+    Materials NVARCHAR(255),
+    Quality NVARCHAR(255),
+    RequestRemontId INT,
+    EmployeeId INT
+);
